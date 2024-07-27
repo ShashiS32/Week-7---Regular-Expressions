@@ -1,8 +1,9 @@
 import re
+name = input("WHat is your name? ").strip()
 
-email = input("What is your email?: ").strip()
+matches = re.search(r"^.+, .+$" , name)
+if matches:
+    last, first = matches.groups()
+    name = f"{first} {last}"
 
-if re.search(r"^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE):
-    print("Valid")
-else:
-    print("Invalid")
+print(name)
